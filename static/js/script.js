@@ -24,9 +24,9 @@ function populateTable(data) {
     const maxBody = document.getElementById('max-table').getElementsByTagName('tbody')[0];
     const dateBody = document.getElementById('date-table').getElementsByTagName('tbody')[0];
     
-    tableBody.innerHTML = ''; // Clear existing data
-    maxBody.innerHTML = ''; // Clear existing data
-    dateBody.innerHTML = ''; // Clear existing data
+    tableBody.innerHTML = ''; 
+    maxBody.innerHTML = ''; 
+    dateBody.innerHTML = ''; 
     const row = maxBody.insertRow();
     const max = row.insertCell(0).textContent = data.suhumax;
     const min = row.insertCell(1).textContent = data.suhumin;
@@ -41,11 +41,11 @@ function populateTable(data) {
         const cellKecerahan = row.insertCell(3);
         const cellDate = row.insertCell(4);
         
-        cellId.textContent = item.idx; // Assuming the JSON has an 'id' field
-        cellHumidity.textContent = item.humid; // Assuming the JSON has a 'name' field
-        cellSuhu.textContent = item.suhu; // Assuming the JSON has an 'age' field
-        cellKecerahan.textContent = item.kecerahan; // Assuming the JSON has an 'email' field
-        cellDate.textContent = item.kecerahan; // Assuming the JSON has an 'email' field
+        cellId.textContent = item.idx; 
+        cellHumidity.textContent = item.humid; 
+        cellSuhu.textContent = item.suhu; 
+        cellKecerahan.textContent = item.kecerahan; 
+        cellDate.textContent = item.kecerahan; 
     });
 
     data.month_year_max.forEach(item =>{

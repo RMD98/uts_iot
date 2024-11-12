@@ -3,11 +3,6 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
-stat = 'OFF'  # Initialize the status variable
-
-client = MongoClient('mongodb://localhost:27017/')
-db = client['temperatureDB']  # Replace with your database name
-collection = db['sensorData']
 
 
 @app.route('/')
@@ -42,20 +37,6 @@ def get_data():
      ]
     }
     return jsonify(data)  # Return the data as JSON
-# def data():
-#     cursor = collection.find({},{'_id':0})
-#     data_list = list(cursor)
-#     return jsonify(data_list)
-
-@app.route('/api/data', methods=['POST'])
-def post_data():
-    global stat  # Use the global variable
-    content = request.json  # Get the JSON data from the request
-    if 'status' in content:
-        stat = content['status']  # Update the global status variable
-        return jsonify({'message': 'Status updated successfully', 'status': stat}), 200
-    else:
-        return jsonify({'message': 'Status not provided'}), 400  # Return an error if status is not provided
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=9990, debug=True)  # Run the app
